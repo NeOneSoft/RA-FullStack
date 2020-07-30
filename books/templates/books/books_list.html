@@ -1,0 +1,25 @@
+{% extends "authors/base.html"%}
+{% block content %}
+<div class="col-md-6 col-auto">
+  <div class="card">
+    <div class="card-header">
+      Books
+    </div>
+    <ul class="list-group list-group-flush">
+      {% for book in books %}
+      <li class="list-group-item">
+        Title: {{ book.title }}
+       <br>
+        Author: {% for author in book.authors %}
+                    {{ author.first_name }} {{ author.last_name }},
+                {% endfor %}
+       <br>
+        Editorial: {{ book.editorial.name_ed }}
+       <br>
+        Date of publication: {{ book.date_pub }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock content %}

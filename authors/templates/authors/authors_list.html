@@ -1,0 +1,20 @@
+{% extends "authors/base.html"%}
+{% block content %}
+<div class="col-md-6 col-auto">
+  <div class="card">
+    <div class="card-header">
+      Authors
+    </div>
+    <ul class="list-group list-group-flush">
+      {% for author in authors %}
+      <li class="list-group-item">
+        Author's Name: <a href="{% url 'authors-detail' author.id %}">{{ author.first_name }} {{ author.last_name }}</a>
+        <br>
+        Date of Birth: {{ author.birth_date}}
+        <br>
+        Phone: {{ author.phone }}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock content %}
